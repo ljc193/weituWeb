@@ -18,12 +18,28 @@ var typeList = [
 ]
 var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
 $(function() {
+    /* 大类型点击 */
     let labelDom = $(".wt_projects").find(".wt_projects-type").find(".wt_projects-type-item");
-    labelDom.eq(0).addClass("label_active")
+    labelDom.eq(0).addClass("label_active");
+    // labelDom.eq(0).find('.cn').css({
+    //     display:"block"
+    // });  
+    // labelDom.eq(0).find('.en').css({
+    //     display:"none"
+    // });  
     labelDom.on("click",function() {
         labelDom.removeClass("label_active")
         $(this).addClass("label_active");
+       
     })
+    labelDom.each(function(i,d) {
+        let enW = $(this).find(".en").width() + 5;
+        let cnW = $(this).find(".cn").width() + 5;
+        $(this).css({
+            'width':enW > cnW?enW:cnW,
+        })
+    })
+    /* 项目图片点击 */
     $(".item_wrapper").on('click',function(e) {
         $(".wt_projects-content-wrapper").css({ display:"none" });
         $(".wt_projects-itemDetail").css({ display:"block" });

@@ -1,39 +1,56 @@
 
 @media (min-width: 0px) {
     .wt_news {
-        margin-top: 20px;
-        .line {
-            height: 1px;
-            background-color: #979797;
-        }
+        margin-top: 30px;
         &-items {
-            padding-bottom: 24px;
-            &-leftImg {
-               img {
-                 width: 100%;
-                 display: inline-block;
-               }
-            }
-            &-rightDis {
+            position: relative;
+            padding: .15rem;
+            margin-bottom: 15px;
+            &-ctx {
+                color: #fff;
                 &-title {
                     font-size: 18px;
-                    margin-top: 15px;
                 }
                 &-date {
-                    color: #505050;
                     margin-top: 10px;
+                    font-size: 12px;
                 }
-                &-content {
-                    margin-top: 24px;
-                    line-height: 24px;
-                    text-align: justify;
+                &-cn {
+                    font-size: 14px;
+                    margin-top: 15px;
+                    line-height: 18px;
+                }
+                &-en {
+                    font-size: 14px;
+                    margin-top: 15px;
+                    line-height: 18px;
                 }
             }
-            &:not(:first-child) {
-                margin-top: 20px;
+            &-model {
+                background: #538268;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                mix-blend-mode: multiply;
+                
             }
-            &:last-child {
-                border-bottom: none;
+            &-bg {
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center top;
+                user-select: none;
+                -webkit-filter: blur(5px); /* Chrome, Opera */
+                -moz-filter: blur(5px);
+                 -ms-filter: blur(5px);    
+                     filter: blur(5px);
             }
         }
     }
@@ -43,36 +60,54 @@
 }
 @media (min-width: 769px) {
     .wt_news {
-        margin-top: 85px;
+        margin-top: 60px;
         &-items {
-            padding-bottom: .24rem;
-            &-leftImg {
-               img {
-                 width: 100%;
-                 display: inline-block;
-               }
-            }
-            &-rightDis {
-                //padding-left: .45rem;
+            position: relative;
+            padding: .3rem;
+            margin-bottom: 20px;
+            &-ctx {
+                color: #fff;
                 &-title {
-                    font-size: 22px;
-                    margin-top: 0px;
+                    font-size: 20px;
                 }
                 &-date {
-                    color: #505050;
                     margin-top: 10px;
+                    font-size: 14px;
                 }
-                &-content {
-                    margin-top: .24rem; 
-                    line-height: 24px;
-                    text-align: justify;
+                &-cn {
+                    font-size: 16px;
+                    margin-top: 15px;
+                }
+                &-en {
+                    font-size: 16px;
+                    margin-top: 15px;
                 }
             }
-            &:not(:first-child) {
-                margin-top: 61px;
+            &-model {
+                background: #538268;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                mix-blend-mode: multiply;
+                
             }
-            &:last-child {
-                border-bottom: none;
+            &-bg {
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center top;
+                user-select: none;
+                -webkit-filter: blur(5px); /* Chrome, Opera */
+                -moz-filter: blur(5px);
+                 -ms-filter: blur(5px);    
+                     filter: blur(5px);
             }
         }
     }

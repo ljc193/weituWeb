@@ -93,7 +93,10 @@ $(function() {
                 </div>
             </div>
             `
-            parentDom.before(disDom);
+            if(clickId == "1" || clickId == "2") {  // 只有老总有详情
+                parentDom.before(disDom);
+            }
+            
             if(!isNotSlide) {
                 $(".wt_team-peopleList-itemDisc").slideDown(500,function() {
 
