@@ -6,7 +6,7 @@
  * @LastEditors: jinchuan.lee
  * @LastEditTime: 2021-09-04 17:49:29
  */
-import 'jquery';
+import './js/jquery-1.9.min.js';
 import './bootstrap/js/bootstrap.min.js';
 import "./bootstrap/css/bootstrap.min.css";
 import "./css/cssReset.css"
@@ -67,6 +67,12 @@ $(function() {
     headDom.append(listr).find("li").find("a").each(function(){  
         if($($(this))[0].href==String(window.location))  {
             $(this).find('span').addClass('active');  
+            $(this).find('.cn').css({
+                display:"block"
+            });  
+            $(this).find('.en').css({
+                display:"none"
+            });  
         } 
             
         if(isPhone) {  
@@ -74,11 +80,11 @@ $(function() {
                 'width':'100%'
             })
         }else {
-            setTimeout(()=>{
-                $(this).css({
-                    'width':$(this).width()>30?$(this).width():30,
-                })
-            },1000)
+            let enW = $(this).find(".en").width();
+            let cnW = $(this).find(".cn").width();
+            $(this).css({
+                'width':enW > cnW?enW:cnW,
+            })
         }
     }); 
     $(".wt-logo").click((e)=>{
@@ -112,3 +118,9 @@ $(function() {
         return baseWidth;
      }
 })
+window.onresize = function() {
+    let isPhones = $(window).width()== 768 || $(window).width()<768; // 移动设备
+    if(isPhones !== isPhone) {
+        location.reload()
+    }
+}

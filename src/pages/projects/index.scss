@@ -1,5 +1,132 @@
 @media (min-width: 0px) {
+    .wt_projects {
+        margin-top: 20px;
+        &-content {
+            margin-top: 40px;
+            .wt_projects-itemDetail {
+                display: none;
+                position: relative;
+                &-close {
+                    position: absolute;
+                    top: -30px;
+                    right: 0px;
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        cursor: pointer;
+                        transition: all .3s;
+                        &:hover {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+                &-content {
+                    margin-top: 30px;
+                    .content_title {
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-bottom: 20px;
+                    }
+                    &-row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        &-left {
+                            width: 100%;
+                            text-align: justify;
+                            line-height: 24px;
+                        }
+                        &-right {
+                            margin-top: 30px;
+                            width: 100%;
+                            border-top: 2px solid #538268;
+                            padding-top: 20px;
+                            .right_items {
+                                line-height: 40px;
+                                &-label {
+                                    font-weight: 600;
+                                }
+                                &-value {
 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                margin-right: -5px;
+                margin-left: -5px;
+                
+                &-item {
+                    width: 100%;
+                    padding: 5px;
+                    img {
+                        width: 100%;
+                    }
+                    .item_wrapper {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                        &:hover {
+                            .item_model {
+                                opacity: 1;
+                            }
+                            img {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    .item_model {
+                        opacity: 0;
+                        transition: all .4s;
+                        position: absolute;
+                        box-sizing: border-box;
+                        padding: 10px;
+                        width: 100%;
+                        height: 100%;
+                        top: 0px;
+                        left: 0px;
+                        cursor: pointer;
+                        background: rgba(0,0,0,.5);
+                        &-content {
+                            position: absolute;
+                            bottom: 20px;
+                            left: 20px;
+                            color: #fff;
+                            &-name {
+                                font-size: 14px;
+                            }
+                            &-date {
+                                font-size: 12px;
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-selectType {
+            display: block;
+        }
+        &-type {
+            display: none;
+            .label_active {
+                font-weight: 600;
+            }
+            &-item {
+                display: inline-block;
+                font-size: 16px;
+                margin-right: 20px;
+                cursor: pointer;
+                padding: 10px 0;
+            }
+        }
+    }
 }
 @media (min-width: 768px) {
     
@@ -9,24 +136,123 @@
         margin-top: 20px;
         &-content {
             margin-top: 50px;
-            &-row {
-                margin-bottom: 20px;
-                &-col {
+            .wt_projects-itemDetail {
+                display: none;
+                position: relative;
+                &-close {
+                    position: absolute;
+                    top: -50px;
+                    right: 0px;
                     img {
-                        width: 100%;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                        transition: all .3s;
+                        &:hover {
+                            transform: rotate(90deg);
+                        }
                     }
                 }
-                .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
-                    padding-left: 10px;
-                    padding-right: 10px;
+                &-content {
+                    margin-top: 60px;
+                    .content_title {
+                        font-size: 28px;
+                        font-weight: 400;
+                        margin-bottom: 40px;
+                    }
+                    &-row {
+                        display: flex;
+                        justify-content: space-between;
+                        &-left {
+                            width: 60%;
+                            text-align: justify;
+                            line-height: 30px;
+                        }
+                        &-right {
+                            width: 33%;
+                            margin-top: 0px;
+                            border-top: 2px solid #538268;
+                            padding-top: 30px;
+                            .right_items {
+                                line-height: 55px;
+                                &-label {
+                                    font-weight: 600;
+                                }
+                                &-value {
+
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            .row {
-                margin-left: -10px;
+            &-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
                 margin-right: -10px;
+                margin-left: -10px;
+                &-item {
+                    width: 33.3333333333%;
+                    padding: 10px;
+                    height: 280px;
+                    .item_wrapper {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                        &:hover {
+                            .item_model {
+                                opacity: 1;
+                            }
+                            img {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center top;
+                        user-select: none;
+                        cursor: pointer;
+                        transition: all .4s;
+                    }
+                    .item_model {
+                        opacity: 0;
+                        transition: all .4s;
+                        position: absolute;
+                        box-sizing: border-box;
+                        padding: 30px;
+                        width: 100%;
+                        height: 100%;
+                        top: 0px;
+                        left: 0px;
+                        cursor: pointer;
+                        background: rgba(0,0,0,.5);
+                        &-content {
+                            position: absolute;
+                            bottom: 20px;
+                            left: 20px;
+                            color: #fff;
+                            &-name {
+                                font-size: 14px;
+                            }
+                            &-date {
+                                font-size: 12px;
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                }
             }
         }
+        &-selectType {
+            display: none;
+        }
         &-type {
+            display: block;
             .label_active {
                 font-weight: 600;
             }
