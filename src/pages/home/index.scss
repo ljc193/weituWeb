@@ -38,8 +38,8 @@
 	.describe_content {
 		position: absolute;
 		z-index: 99;
-		bottom: .91rem;
-		right: 1.70rem;
+		bottom: 1rem;
+		right: 2rem;
 		color: #fff;
 		&-title {
 			display: block;
@@ -49,7 +49,7 @@
 			line-height: 16px;
 		}
 		&-text {
-			font-size: 24px;
+			font-size: 22px;
 			white-space: nowrap;
 			display: block;
 		}

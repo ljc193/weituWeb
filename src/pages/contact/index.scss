@@ -1,36 +1,41 @@
 @media (min-width: 0px) {
     .wt-contact {
-        margin-top: 20px;
-        width: 100%;
+        margin-top: 50px;
+        color: #646464;
+        &-submitType {
+            margin-bottom: 50px;
+            &-title {
+                font-size: 18px;
+                font-weight: bold;
+                font-family: "fontBold";
+            }
+            &-c {
+                margin-top: 35px;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 28px;
+            }
+        }
         &-joinUs {
-            margin-top: 20px;
+            margin-top: 50px;
             &-position {
                 margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
                 .joinUs-position-items {
-                    padding-bottom: 30px;
-                    border-bottom: 1px solid #979797;
-                    &:last-child {
-                        border-bottom: none;
-                        padding-bottom: 0px;
-                    }
-                    &:not(:first-child) {
-                        margin-top: 30px;
-                    }
+                    width: 100%;
+                    margin-bottom: 50px;
                     &-title {
-                        font-size: 16px;
-                        font-weight: bold;
+                        font-size: 18px;
                         font-family: "fontBold";
                     }
-                    &-date {
-                        line-height: 32px;
-                        color: #626262;
-                    }
-                    &-disc {
-                        margin-top: 15px;
-                    }
                     &-detial {
+                        margin-top: 25px;
                         &-item {
+                            font-size: 14px;
+                            font-weight: 400;
                             line-height: 28px;
+                            word-break:break-all;
                         }
                     }
                 }
@@ -38,25 +43,28 @@
             &-title {
                 font-size: 20px;
                 font-weight: 600;
-                font-family: "fontBold";
             }
         }
         &-disc {
-            padding: 25px 0 45px;
-            border-bottom: 1px solid #979797;
-            font-size: 14px;
-            line-height: 24px;
-            color: #333;
-            &-left {
-                text-align: justify;
-                line-height: 24px;
-                color: #000;
+            margin-top: 30px;
+            &-info {
+                margin-top: 15px;
+                &-i {
+                    color: #646464;
+                    font-size: 14px;
+                    line-height: 28px;
+                    &-label {
+                        font-weight: 600;
+                    }
+                    &-value {
+
+                    }
+                }
             }
-            &-right {
-                text-align: justify;
-                line-height: 24px;
-                color: #000;
-                margin-top: 20px;
+            &-title {
+                color: #646464;
+                font-size: 20px;
+                font-weight: 600;
             }
         }
         &-banner {
@@ -71,59 +79,70 @@
 }
 @media (min-width: 769px) {
     .wt-contact {
-        margin-top: 100px;
-        &-joinUs {
-            margin-top: 50px;
-            &-position {
+        margin-top: 80px;
+        color: #646464;
+        &-submitType {
+            margin-bottom: 105px;
+            &-title {
+                font-size: 18px;
+                font-weight: bold;
+                font-family: "fontBold";
+            }
+            &-c {
                 margin-top: 35px;
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+        &-joinUs {
+            margin-top: 80px;
+            &-position {
+                margin-top: 50px;
+                display: flex;
+                flex-wrap: wrap;
                 .joinUs-position-items {
-                    padding-bottom: 30px;
-                    border-bottom: 1px solid #979797;
-                    &:last-child {
-                        border-bottom: none;
-                        padding-bottom: 0px;
-                    }
-                    &:not(:first-child) {
-                        margin-top: 20px;
-                    }
+                    width: 50%;
+                    margin-bottom: 80px;
                     &-title {
-                        font-size: 16px;
+                        font-size: 18px;
                         font-weight: bold;
                         font-family: "fontBold";
                     }
-                    &-date {
-                        line-height: 28px;
-                        color: #626262;
-                    }
-                    &-disc {
-                        margin-top: 10px;
-                    }
                     &-detial {
-                        margin-top: 10px;
+                        margin-top: 35px;
                         &-item {
-                            line-height: 20px;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 33px;
                         }
                     }
                 }
             }
             &-title {
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: 400;
             }
         }
         &-disc {
-            padding: 15px 0 30px;
-            border-bottom: 1px solid #979797;
-            font-size: 14px;
-            line-height: 24px;
-            color: #333;
-            &-left {
-                text-align: justify;
-                line-height: 24px;
+            margin-top: 80px;
+            &-info {
+                margin-top: 50px;
+                &-i {
+                    color: #646464;
+                    font-size: 16px;
+                    line-height: 35px;
+                    &-label {
+                        font-weight: 600;
+                    }
+                    &-value {
+
+                    }
+                }
             }
-            &-right {
-                text-align: justify;
-                margin-top: 0px;
+            &-title {
+                color: #646464;
+                font-size: 24px;
+                font-weight: 400;
             }
         }
         &-banner {

@@ -131,17 +131,18 @@ body {
 				margin-right: .5rem;
 				a {
 					text-align: center;
-					font-size: 16px;
 					color: #000;
 					line-height: 24px;
 					display: inline-block;
 					border-bottom: none;
 					span {
 						padding-bottom: 10px;
-						font-size: 18px;
+						font-weight: 600;
+						font-size: 16px;
 					}
 					.cn {
 						display: none;
+						white-space: nowrap;
 					}
 					.en {
 						white-space: nowrap;

@@ -23,12 +23,17 @@ var menuList = [
 	},{
 		name:"团队",
 		url:"team",
-		englishName:"TEAM WTD",
+		englishName:"TEAM",
 		isEnable: true,
 	},{
 		name:"联系我们",
 		url:"contact",
 		englishName:"CONTACT",
+		isEnable: true,
+	},{
+		name:"关于我们",
+		url:"about",
+		englishName:"ABOUT",
 		isEnable: true,
 	}
 ]

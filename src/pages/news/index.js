@@ -19,12 +19,15 @@ $(function() {
                         2021年5月7日
                     </div>
                     <div class = "wt_news-items-ctx-cn">
-                        选址曹山，环球融创意图在这里建造一座悬浮于山、湖、谷、森林、岛屿之上的14000亩超级未来度假城市，曹山未来城。
+                    字数限制为150字约为两排。字数限制为150字约为两排。字数限制为150字约为两排。字数限制为150字约为两排。
+                    字数限制为150字约为两排。字数限制为150字约为两排。字数限制为110字。字数限制为110字。
+                    字数限制为110字。字数限制为110字。字数限制为110字。字数限制为110字。字数限制为110字。
                     </div>
                     <div class = "wt_news-items-ctx-en">
-                        Caoshan is selected as the site, and Global Finance Creative Map is here to build a 14,000-acre super 
-                        futuristic resort city suspended above mountains, 
-                        lakes, valleys, forests and islands, Caoshan Future City.
+                    Caoshan is selected as the site, and Global Finance Creative Map is here to build a 14,000-acre s
+                    uper futuristic resort city suspended above mountains, lakes, valleys, forests and islands, Caoshan Future City.
+                    Caoshan is selected as the site, and Global Finance Creative Map is here to build a 14,000-acre s
+                    uper futuristic resort city suspended above mountains.
                     </div>
                 </div>
             </div>
