@@ -61,19 +61,28 @@ $(function() {
     }
     peopleDom.append(str).find(".wt_team-peopleList-row .wt_team-peopleList-row-col").on('click',function() {
         let isNotSlide = $(this).parent().prev().prop("class") == "wt_team-peopleList-itemDisc";
+        let clickId = $(this).attr('data-id'),
+            parentDom = $(this).parent(),
+            clickItem = peopleList[clickId-1]; 
         $(".wt_team-peopleList .wt_team-peopleList-row .wt_team-peopleList-row-col").each(function(){
             $(this).find(".wt_team-peopleList-row-col-model").removeClass("click_active");
             if($(this).parent().prev().prop("class") == "wt_team-peopleList-itemDisc") {
-                $(this).parent().prev().remove();
+                let _this = this;
+                if(clickId == 1 || clickId == 2) {
+                    $(_this).parent().prev().remove();
+                }else {
+                    $(".wt_team-peopleList-itemDisc").slideUp(300,function() {
+                        $(_this).parent().prev().remove();
+                    });
+                }
+                
             }
         })
         // $(".wt_team-peopleList .wt_team-peopleList-row").each(function(){
             
         // })
         
-        let clickId = $(this).attr('data-id'),
-            parentDom = $(this).parent(),
-            clickItem = peopleList[clickId-1]; 
+        
             $(this).find(".wt_team-peopleList-row-col-model").addClass("click_active")
             let disDom = 
             `
@@ -98,7 +107,7 @@ $(function() {
             }
             
             if(!isNotSlide) {
-                $(".wt_team-peopleList-itemDisc").slideDown(500,function() {
+                $(".wt_team-peopleList-itemDisc").slideDown(300,function() {
 
                 });
             }else {
