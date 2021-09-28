@@ -1,9 +1,11 @@
 	(function(data){
+		var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
 		$.fn.myBanner = function(data) {
 			this.config = {
 				nowIndex: 0,  //当前显示的图片索引
 				hasStarted: false,  // 是否开始轮播
 				interval: null,  // 轮播
+				isAuto: data.isAuto===undefined?true:data.showDot,
 				liItems: null,  // li集合
 				itemsLength: 0,  // 集合长度
 				indicatorDomList: null,  // 指示器集合
@@ -17,7 +19,7 @@
 				this.config.liItems = this.find('ul').find("li");
 				this.config.itemsLength = this.config.liItems.length;
 				this.config.indicatorDomList = this.find("#indicators");
-				this.config.operationDomList = this.find("#bg_btn");
+				this.config.operationDomList = this.find("#bg_btn"); 
 				
 				// 显示第一张图片
 				this.config.liItems.first("li").css({
@@ -54,8 +56,9 @@
 				},that.config.time,'linear',function(){
 					// $(this).css('background',"rgba(255,255,255,.43)")
 				});
-				this.config.operationDomList.hide();  // 隐藏左右
-				
+				if(!isPhone) {
+					this.config.operationDomList.hide();  // 隐藏左右
+				}
 				//鼠标移入banner图时，停止轮播并显示前后按钮，移出时开始轮播并隐藏前后按钮
 				this.hover(function () {
 				   that.config.operationDomList.fadeIn(200);
@@ -156,9 +159,11 @@
 			this.start = function () {
 			    if (!this.config.hasStarted) {
 			        this.config.hasStarted = true;
-			        this.interval = setInterval(function () {
-			            that.next();
-			        }, that.config.time);
+					if(this.config.isAuto) {
+						this.interval = setInterval(function () {
+							that.next();
+						}, that.config.time);
+					}
 			    }
 			}
 			//停止函数
