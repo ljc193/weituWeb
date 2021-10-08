@@ -13,7 +13,7 @@ import "./css/cssReset.css"
 import './css/app.scss';
 import menuLists from "../assets/js/menu.js"
 import Request from './js/request.js' 
-import { baseUrl } from './js/urlConfig.js'
+import { baseUrl,imgShow } from './js/urlConfig.js'
 import { set } from 'lodash';
 
 

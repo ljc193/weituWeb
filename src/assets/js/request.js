@@ -1,4 +1,5 @@
-import { baseUrl } from './urlConfig.js'
+// import { baseUrl } from './urlConfig.js'
+let baseUrl = "/api/"
 function Request(url,data,method) {
 	return new Promise((resolve,reject)=>{
 		$.ajax({
