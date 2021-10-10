@@ -1,10 +1,16 @@
-// import { baseUrl } from './urlConfig.js'
-let baseUrl = "/api/"
+import { baseUrl } from './urlConfig.js'
+let baseUrls = ""
+if (process.env.NODE_ENV === "development") {
+	baseUrls = "/api/"
+  }else {
+	baseUrls = baseUrl
+  }
+
 function Request(url,data,method) {
 	return new Promise((resolve,reject)=>{
 		$.ajax({
 			type: method,
-			url:baseUrl + url,
+			url:baseUrls + url,
 			data:data,
 			headers: {'Content-Type':'application/x-www-form-urlencoded'},
 			success:function (data) {

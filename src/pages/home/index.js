@@ -4,43 +4,6 @@ import '../../assets/js/prototype.js'
 import './index.html';
 import Request from '../../assets/js/request.js'
 import { baseUrl,imgShow } from '../../assets/js/urlConfig.js'
-let imgList = [
-    {
-        img: require("../../assets/img/home/h_1.jpg"),
-        name:"华润置地未来之城",
-        city:"成都",
-        date:"2020"
-    },
-    {
-        img: require("../../assets/img/home/h_2.jpg"),
-        name:"环球融创滇池南湾未来城",
-        city:"五渔邨小镇",
-        date:"2020"
-    },
-    {
-        img: require("../../assets/img/home/h_3.gif"),
-        name:"环球融创滇池南湾未来城",
-        city:"五渔邨小镇",
-        date:"2020"
-    },{
-        img: require("../../assets/img/home/h_4.jpg"),
-        name:"环球融创滇池南湾未来城",
-        city:"五渔邨小镇",
-        date:"2020"
-    },
-    {
-        img: require("../../assets/img/home/h_5.jpg"),
-        name:"环球融创滇池南湾未来城",
-        city:"五渔邨小镇",
-        date:"2020"
-    },
-    {
-        img: require("../../assets/img/home/h_6.jpg"),
-        name:"环球融创滇池南湾未来城",
-        city:"五渔邨小镇",
-        date:"2020"
-    }
-]
 function getImgList() {
     Request('front/findHomePage',{},'POST')
     .then(
