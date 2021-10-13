@@ -12,7 +12,9 @@ function getContactInfo() {
                 if(list.length) {
                     dataObj = list[0];
                     leftContent = JSON.parse(dataObj.leftContent.replace(/&quot;/g,"\""));
-                    $(".wt-contact-banner").append(`<img src="`+ imgShow + leftContent.annex +`" alt="">`)
+                    $(".wt-contact-banner").css({
+                        "background-image":`url(`+ imgShow + leftContent.annex +`)`
+                    })
                     $(".wt-contact-disc-info").append(
                         `
                         <div class = "wt-contact-disc-info-i">

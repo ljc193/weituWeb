@@ -8,6 +8,7 @@
 		li {
 			a {
 				color: #fff !important;
+				text-shadow: 1px 1px 1px #686868;
 			}
 		}
 	}
@@ -41,6 +42,7 @@
 		bottom: 1rem;
 		right: 2rem;
 		color: #fff;
+		text-shadow: 1px 1px 1px #686868;
 		&-title {
 			display: block;
 			font-size: 12px;
@@ -61,8 +63,9 @@
 	object-fit: cover;
     object-position: center top;
 	user-select: none;
-    display: block;
+    display: inline-block;
 	transition: all 6s linear;
+	vertical-align: top;
 }
 .ban-btn{
     width: 100%;
@@ -78,6 +81,7 @@
 .ban-btn a{
     display: inline-block;
     color: #fff;
+	text-shadow: 1px 1px 1px #686868;
     text-decoration: none;
 	padding: 0 .2rem;
 }
@@ -122,5 +126,6 @@
 	z-index: 9999;
 	a {
 		color: #fff;
+		text-shadow: 1px 1px 1px #686868;
 	}
 }

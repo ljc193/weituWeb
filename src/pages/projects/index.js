@@ -16,7 +16,9 @@ var typeList = [
 ]
 var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
 var params = {
-
+    pageNo:1,
+    pageSize: 12,
+    itemCategoryId:""
 }
 // 获取类型
 function getType() {
@@ -37,7 +39,7 @@ function getType() {
                     `
                 }
                 parentDom.append(str);
-                params.id = data[0].id;
+                params.itemCategoryId = data[0].id;
                 getItem(params);
                  /* 大类型点击 */
                 let labelDom = $(".wt_projects").find(".wt_projects-type").find(".wt_projects-type-item");
@@ -63,7 +65,7 @@ function getType() {
 }
 // 获取项目
 function getItem(params) {
-    Request('front/findIntroduction',{itemCategoryId:params.id},'POST')
+    Request('front/findIntroduction',params,'POST')
     .then(
         res=>{
             if(res.code == 1) {
@@ -166,7 +168,7 @@ function imgMounted() {
                                 </div>
                                 <div class = "content_items">
                                     <div class = "content_items-label">Production time:</div>
-                                    <div class = "content_items-value">`+ contentData.date +`</div>
+                                    <div class = "content_items-value">`+ contentData.dates +`</div>
                                 </div>
                             </div>
                         `

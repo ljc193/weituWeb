@@ -7,12 +7,14 @@ function getContactInfo() {
     Request('front/findContactUs',{},'POST')
     .then(
         res=>{
-            if(res.code == "1") {
+            if(res.code == "1") { 
                 let list = res.data,dataObj = {},rightContent = {};
                 if(list.length) {
                     dataObj = list[0];
                     rightContent = JSON.parse(dataObj.rightContent.replace(/&quot;/g,"\""));
-                    $(".wt-contact-banner").append(`<img src="`+ imgShow + rightContent.banner +`" alt="">`)
+                    $(".wt-contact-banner").css({
+                        "background-image":`url(`+ imgShow + rightContent.banner +`)`
+                    })
                     $(".wt-contact-disc-info-cn").append(rightContent.disCn);
                     $(".wt-contact-disc-info-en").append(rightContent.disEn);
                 }
