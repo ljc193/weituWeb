@@ -4,12 +4,17 @@ import './index.html';
 import Request from '../../assets/js/request.js'
 import { imgShow } from '../../assets/js/urlConfig.js'
 var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
-function getNews() {
-    Request('front/findJournalism',{},'POST')
+var params = {
+    pageNo:1,
+    pageSize: 5,
+}
+function getNews(callback) {
+    Request('front/findJournalism',params,'POST')
     .then(
         res=>{
             if(res.code == "1") {
                 let newsList = res.data.list;
+                if(!newsList.length) return;
                 let containerDom = $(".wt_news");
                 let str = "";
                 for(var i=0;i<newsList.length;i++) {
@@ -66,10 +71,19 @@ function getNews() {
                         filter: "blur(5px)",
                     })
                 }
+                callback && callback();
             }
         }
     )
 }
 $(function() {
-    getNews();
+    getNews(()=>{
+        // 滚动监听
+        window.onscroll = function() {
+            if($(document).scrollTop()+$(window).height()>=$(document).height()){
+                params.pageNo += 1;
+                getNews();
+            }  
+        }
+    });
 })

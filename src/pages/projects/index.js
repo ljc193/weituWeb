@@ -17,11 +17,11 @@ var typeList = [
 var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
 var params = {
     pageNo:1,
-    pageSize: 12,
+    pageSize: 10,
     itemCategoryId:""
 }
 // 获取类型
-function getType() {
+function getType(callback) {
     Request('front/findItemCategory',{},'POST')
     .then(
         res=>{
@@ -40,7 +40,7 @@ function getType() {
                 }
                 parentDom.append(str);
                 params.itemCategoryId = data[0].id;
-                getItem(params);
+                getItem(params,callback);
                  /* 大类型点击 */
                 let labelDom = $(".wt_projects").find(".wt_projects-type").find(".wt_projects-type-item");
                 labelDom.eq(0).addClass("label_active");
@@ -64,7 +64,7 @@ function getType() {
     )
 }
 // 获取项目
-function getItem(params) {
+function getItem(params,callback) {
     Request('front/findIntroduction',params,'POST')
     .then(
         res=>{
@@ -91,7 +91,7 @@ function getItem(params) {
                     cancalDetail();
                     parentDom.append(str);
                     imgMounted();
-                    //bannerInt();
+                    callback && callback();
             }
         }
     )
@@ -294,6 +294,13 @@ function bannerInt() {
     $("#myBanner").myBanner({ showDot: false,scale: false,isAuto:false })
 }
 $(function() {
-    getType();
-    
+    getType(()=>{
+        // 滚动监听
+        window.onscroll = function() {
+            if($(document).scrollTop()+$(window).height()>=$(document).height()){
+                params.pageNo += 1;
+                getItem(params);
+            }  
+        }
+    });
 })
