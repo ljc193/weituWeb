@@ -6,20 +6,14 @@ import { baseUrl,imgShow } from '../../assets/js/urlConfig.js'
 import '../../assets/js/prototype.js'
 
 
-var typeList = [
-    "住宅景观",
-    "公共空间",
-    "文旅度假",
-    "城市更新",
-    "商业办公",
-    "酒店度假",
-]
+
 var isPhone = $(window).width()== 768 || $(window).width()<768; // 移动设备
 var params = {
     pageNo:1,
     pageSize: 10,
     itemCategoryId:""
 }
+var count = 1;
 // 获取类型
 function getType(callback) {
     Request('front/findItemCategory',{},'POST')
@@ -45,10 +39,11 @@ function getType(callback) {
                 let labelDom = $(".wt_projects").find(".wt_projects-type").find(".wt_projects-type-item");
                 labelDom.eq(0).addClass("label_active");
                 labelDom.on("click",function() {
+                    params.pageNo = 1; // 重置页数
                     labelDom.removeClass("label_active")
                     $(this).addClass("label_active");
                     let id = $(this).attr('data-id');
-                    params.id = id;
+                    params.itemCategoryId = id;
                     $(".wt_projects-content-wrapper").empty();
                     getItem(params);
                 })
@@ -72,6 +67,15 @@ function getItem(params,callback) {
                 let data = res.data.list,
                     parentDom = $(".wt_projects-content-wrapper"),
                     str = "";
+                    if(!data.length && params.pageNo <2) {
+                        str = 
+                        `
+                            <div class = "noData">暂无数据</div>
+                        `
+                        parentDom.append(str);
+                        callback && callback();
+                        return;
+                    }
                     for(var i=0;i<data.length;i++) {
                         str += 
                         `
@@ -88,7 +92,7 @@ function getItem(params,callback) {
 						</div>
                         `
                     }
-                    cancalDetail();
+                    if(params.pageNo <2) cancalDetail();
                     parentDom.append(str);
                     imgMounted();
                     callback && callback();
@@ -98,6 +102,7 @@ function getItem(params,callback) {
 }
 function imgMounted() {
     /* 项目图片点击 */
+    $(".item_wrapper").unbind("click");
     $(".item_wrapper").on('click',function(e) {
         let itemId = $(this).attr("data-id");
         $(".wt_projects-content-wrapper").css({ display:"none" }); 
@@ -187,7 +192,7 @@ function imgMounted() {
                         })
                         /* 详情内容收起按钮点击 */
                         $(".itemDetail_content_wrapper").stop(true,true).slideUp(0);
-                        var count = 1;
+                        $(".itemDetail_content_slider").unbind("click");
                         $(".itemDetail_content_slider").on("click",function() {
                             if(count == 1) {
                                 $(this).find(".img-icon").css({
@@ -211,6 +216,7 @@ function imgMounted() {
                             }
                             
                         })
+                        $(".itemDetail_content_back").unbind("click");
                         $(".itemDetail_content_back").on("click",function() {
                             cancalDetail();
                         })
@@ -235,63 +241,6 @@ function cancalDetail() {
     $("#menu_wrapper").css({
         background: "#fff"
     })
-}
-function bannerInt() {
-    let imgList = [
-        {
-            img: require("../../assets/img/home/h_1.jpg"),
-            name:"华润置地未来之城",
-            city:"成都",
-            date:"2020"
-        },
-        {
-            img: require("../../assets/img/home/h_2.jpg"),
-            name:"环球融创滇池南湾未来城",
-            city:"五渔邨小镇",
-            date:"2020"
-        },
-        {
-            img: require("../../assets/img/home/h_3.gif"),
-            name:"环球融创滇池南湾未来城",
-            city:"五渔邨小镇",
-            date:"2020"
-        },{
-            img: require("../../assets/img/home/h_4.jpg"),
-            name:"环球融创滇池南湾未来城",
-            city:"五渔邨小镇",
-            date:"2020"
-        },
-        {
-            img: require("../../assets/img/home/h_5.jpg"),
-            name:"环球融创滇池南湾未来城",
-            city:"五渔邨小镇",
-            date:"2020"
-        },
-        {
-            img: require("../../assets/img/home/h_6.jpg"),
-            name:"环球融创滇池南湾未来城",
-            city:"五渔邨小镇",
-            date:"2020"
-        }
-    ]
-    let urlDom = ""
-    for(var i=0;i<imgList.length;i++) {
-        imgList[i].content = imgList[i].name + " · " + imgList[i].city + " · " + imgList[i].date
-        urlDom += `<li>
-                    <a><img src=`  + imgList[i].img + ` /></a>
-                </li>`
-    }
-    $("#myBanner ul").append(urlDom);
-    $("#myBanner ul").find('li').find('img').each((i,d)=>{
-        if($(d).height()<$(window).height()) { // 图片比例不对
-            $(d).css({
-                'width':"auto",
-                'min-width':'100%',
-                'height':'100%'
-            })
-        }
-    })
-    $("#myBanner").myBanner({ showDot: false,scale: false,isAuto:false })
 }
 $(function() {
     getType(()=>{
