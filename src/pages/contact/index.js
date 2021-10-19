@@ -15,7 +15,7 @@ function getContactInfo() {
                     $(".wt-contact-banner").css({
                         "background-image":`url(`+ imgShow + leftContent.annex +`)`
                     })
-                    $(".wt-contact-disc-info").append(
+                    $(".wt-contact-disc-info1").append(
                         `
                         <div class = "wt-contact-disc-info-i">
                             <span class = "wt-contact-disc-info-i-label">TEL: </span>

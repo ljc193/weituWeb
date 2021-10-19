@@ -22,8 +22,14 @@ function getType(callback) {
             if(res.code == 1) {
                 let data = res.data,
                     parentDom = $(".wt_projects-type"),
+                    selectDom = $(".form-control"),
+                    selectStr = "",
                     str = "";
                 for(var i=0;i<data.length;i++) {
+                    selectStr += 
+                    `
+                        <option data-id = `+ data[i].id +`>`+ data[i].name +`</option>
+                    `
                     str += 
                     `
                     <div class = "wt_projects-type-item" data-id = `+ data[i].id +`>
@@ -33,11 +39,19 @@ function getType(callback) {
                     `
                 }
                 parentDom.append(str);
+                selectDom.append(selectStr);
                 params.itemCategoryId = data[0].id;
                 getItem(params,callback);
                  /* 大类型点击 */
                 let labelDom = $(".wt_projects").find(".wt_projects-type").find(".wt_projects-type-item");
                 labelDom.eq(0).addClass("label_active");
+                selectDom.on("change",function(){
+                    params.pageNo = 1; // 重置页数
+                    let id = $(this).children('option:selected').attr('data-id');
+                    params.itemCategoryId = id;
+                    $(".wt_projects-content-wrapper").empty();
+                    getItem(params);
+                })
                 labelDom.on("click",function() {
                     params.pageNo = 1; // 重置页数
                     labelDom.removeClass("label_active")
@@ -58,6 +72,7 @@ function getType(callback) {
         }
     )
 }
+
 // 获取项目
 function getItem(params,callback) {
     Request('front/findIntroduction',params,'POST')
@@ -161,7 +176,7 @@ function imgMounted() {
                             <div class = "itemDetail_content-right">
                                 <div class = "content_items">
                                     <div class = "content_items-label">Project Name:</div>
-                                    <div class = "content_items-value">`+ contentData.titles +`y</div>
+                                    <div class = "content_items-value">`+ contentData.titles +`</div>
                                 </div>
                                 <div class = "content_items">
                                     <div class = "content_items-label">Tongyuan area:</div>
