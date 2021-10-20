@@ -18,6 +18,9 @@ function getContactInfo() {
                     $(".wt-contact-disc-info1").append(
                         `
                         <div class = "wt-contact-disc-info-i">
+                            <span class = "wt-contact-disc-info-i-label size16">重庆纬图</span>
+                        </div>
+                        <div class = "wt-contact-disc-info-i">
                             <span class = "wt-contact-disc-info-i-label">TEL: </span>
                             <span class = "wt-contact-disc-info-i-value">`+ leftContent.phone +`</span>
                         </div>

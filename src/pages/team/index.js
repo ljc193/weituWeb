@@ -60,6 +60,7 @@ function randerDom(datas,callback) {
         })
         
             $(this).find(".wt_team-peopleList-row-col-model").addClass("click_active")
+            let disList = clickItem.characterDescription.split("；");
             let disDom = 
             `
             <div class = "wt_team-peopleList-itemDisc">
@@ -69,7 +70,13 @@ function randerDom(datas,callback) {
                             `+ clickItem.name +`
                         </div>
                         <div class = "wt_team-peopleList-itemDisc-left-disc">
-                            `+ clickItem.characterDescription +`
+                            `
+                            //+ clickItem.characterDescription +
+                            for(var i=0;i<disList.length;i++) {
+                                disDom += "<div>"+ disList[i] +"</div>"
+                            }
+                           
+                    disDom+= `
                         </div>
                     </div>
                     <div class = "wt_team-peopleList-itemDisc-right">
