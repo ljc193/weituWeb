@@ -18,9 +18,11 @@ function getContactInfo() {
                     $(".wt-contact-disc-info-cn").append(rightContent.disCn);
                     $(".wt-contact-disc-info-en").append(rightContent.disEn);
                 }
+                $('#main-footer').css('display','block')
             }
         }
     )
+    
 }
 $(function() {
     getContactInfo();

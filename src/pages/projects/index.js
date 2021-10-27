@@ -59,6 +59,7 @@ function getType(callback) {
                     let id = $(this).attr('data-id');
                     params.itemCategoryId = id;
                     $(".wt_projects-content-wrapper").empty();
+                    $('#main-footer').css('display','none')
                     getItem(params);
                 })
                 labelDom.each(function(i,d) {
@@ -110,6 +111,7 @@ function getItem(params,callback) {
                     if(params.pageNo <2) cancalDetail();
                     parentDom.append(str);
                     imgMounted();
+                    $('#main-footer').css('display','block')
                     callback && callback();
             }
         }

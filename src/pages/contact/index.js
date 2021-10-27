@@ -45,6 +45,7 @@ function getContactInfo() {
                         `
                     )
                 }
+                $('#main-footer').css('display','block')
             }
         }
     )

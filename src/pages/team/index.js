@@ -99,6 +99,7 @@ function randerDom(datas,callback) {
                 })
             }
     });
+    $('#main-footer').css('display','block')
     callback && callback();
 }
 function getMemberList(callback) { 

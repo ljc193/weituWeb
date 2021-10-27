@@ -71,6 +71,7 @@ function getNews(callback) {
                         filter: "blur(5px)",
                     })
                 }
+                $('#main-footer').css('display','block')
                 callback && callback();
             }
         }
