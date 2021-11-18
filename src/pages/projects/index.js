@@ -238,6 +238,8 @@ function imgMounted() {
                             cancalDetail();
                         })
                 }
+                $('#main-footer').css('display','none')
+                $('html').css('height','auto')
             }
         )
     })
@@ -258,6 +260,7 @@ function cancalDetail() {
     $("#menu_wrapper").css({
         background: "#fff"
     })
+    $('html').css('height','100%')
 }
 $(function() {
     getType(()=>{
