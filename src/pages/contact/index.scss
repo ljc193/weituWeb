@@ -104,6 +104,12 @@
                 .joinUs-position-items {
                     width: 50%;
                     margin-bottom: 80px;
+                    &:nth-child(2n-1) {
+                        padding-right: 15px;
+                    }
+                    &:nth-child(2n) {
+                        padding-left: 15px;
+                    }
                     &-title {
                         font-size: 16px;
                         font-weight: 600;
