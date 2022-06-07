@@ -113,15 +113,15 @@ function getItem(params,callback) {
                     imgMounted();
                     $('#main-footer').css('display','block')
                     callback && callback();
+
+                    watchUrl();
             }
         }
     )
 }
-function imgMounted() {
-    /* 项目图片点击 */
-    $(".item_wrapper").unbind("click");
-    $(".item_wrapper").on('click',function(e) {
-        let itemId = $(this).attr("data-id");
+function watchUrl() {
+    let itemId = GetQueryValue('id')
+    if(itemId) {
         $(".wt_projects-content-wrapper").css({ display:"none" }); 
         Request('front/findProject',{id:itemId},'POST')
         .then(
@@ -235,13 +235,31 @@ function imgMounted() {
                         })
                         $(".itemDetail_content_back").unbind("click");
                         $(".itemDetail_content_back").on("click",function() {
-                            cancalDetail();
+                            // cancalDetail();
+                            open(`./projects.html`,'_self')
                         })
                 }
                 $('#main-footer').css('display','none')
                 $('html').css('height','auto')
             }
         )
+    }
+}
+function GetQueryValue(queryName) {
+        var query = decodeURI(window.location.search.substring(1));
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == queryName) { return pair[1]; }
+        }
+        return null;
+ }
+function imgMounted() {
+    /* 项目图片点击 */
+    $(".item_wrapper").unbind("click");
+    $(".item_wrapper").on('click',function(e) {
+        let itemId = $(this).attr("data-id");
+        open(`./projects.html?id=${itemId}`,'_self')
     })
 }
 /* 取消详情 */
