@@ -10,7 +10,6 @@ const merge = require('webpack-merge');
 const config = require('./webpack.config.js');
 const webpack = require('webpack');
 const path = require('path');
-
 module.exports = merge(config,{
 	mode: 'development',
 	plugins: [
@@ -29,7 +28,7 @@ module.exports = merge(config,{
 	    },
 		proxy: {
 			'/api': {
-				target: 'http://weitu.xuanweikeji.cn/vertu', // 要代理的域名 
+				target: "http://manager.wisto.com.cn/vertu/", // 要代理的域名 
 				changeOrigin: true,//允许跨域
 				pathRewrite: {
 				  '^/api': '' // 这个是定义要访问的路径，名字随便写

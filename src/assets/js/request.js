@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "development") {
   }else {
 	baseUrls = baseUrl
   }
-
+baseUrls = baseUrl
 function Request(url,data,method) {
 	return new Promise((resolve,reject)=>{
 		$.ajax({
