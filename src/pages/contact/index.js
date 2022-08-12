@@ -25,7 +25,7 @@ function getContactInfo() {
                             <span class = "wt-contact-disc-info-i-value">`+ leftContent.phone +`</span>
                         </div>
                         <div class = "wt-contact-disc-info-i">
-                            <span class = "wt-contact-disc-info-i-label">E-MATL: </span>
+                            <span class = "wt-contact-disc-info-i-label">E-MAIL: </span>
                             <span class = "wt-contact-disc-info-i-value">`+ leftContent.emile +`</span>
                         </div>
                         <div class = "wt-contact-disc-info-i">

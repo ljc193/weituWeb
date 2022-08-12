@@ -174,6 +174,12 @@ function watchUrl() {
                                         <div class = "content_items-value">`+ contentData.date +`</div>
                                     </div>
                                 </div>
+								<div class = "content-row">
+								    <div class = "content_items">
+								        <div class = "content_items-label">荣获奖项:</div>
+								        <div class = "content_items-value">`+ (contentData.award || '-') +`</div>
+								    </div>
+								</div>
                             </div>
                             <div class = "itemDetail_content-right">
                                 <div class = "content_items">
@@ -192,6 +198,10 @@ function watchUrl() {
                                     <div class = "content_items-label">Production time:</div>
                                     <div class = "content_items-value">`+ contentData.dates +`</div>
                                 </div>
+								<div class = "content_items">
+								    <div class = "content_items-label">Won awards:</div>
+								    <div class = "content_items-value">`+ (contentData.awards || '-') +`</div>
+								</div>
                             </div>
                         `
                         $(".itemDetail_content").append(domStr);
